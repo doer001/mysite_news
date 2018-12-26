@@ -31,10 +31,11 @@
                     <li><a href="{% url 'news:index' %}">新闻</a></li>
                     <li><a href="{% url 'qr_code:index' %}">生成二维码</a></li>
                 {% endif %}
-                <li><a href="{% url 'admin:index' %}">管理员</a></li>
+
                 <li><a href="{% url 'logins:index' %}">首页</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right " style="padding-right: 20px"><!--导航右侧-->
+                <li><a href="{% url 'admin:index' %}">管理员</a></li>
                 {% if request.session.is_login %}
                     <li ><a href="#">当前在线：{{ request.session.user_name }}</a></li>
                     <li ><a href="{% url 'logins:logout' %}">退出</a></li>
