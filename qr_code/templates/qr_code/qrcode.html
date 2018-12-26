@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}生成二维码{% endblock %}
+{% block content %}
+
+    <h1>要生成的二维码字符串是：{{ qr_data }}</h1>
+    <h1>
+        <a href="{% url 'qr_code:qrcode' qr_data %}">生成二维码</a>或
+        <a href="{% url 'qr_code:index' %}">重填字符串</a>
+    </h1>
+
+
+{% endblock %}

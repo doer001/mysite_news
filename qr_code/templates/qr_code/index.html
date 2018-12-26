@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}生成二维码{% endblock %}
+{% block content %}
+
+    <form action="{% url 'qr_code:index'%}" method="post">
+        {% csrf_token %}
+        <h3><label for="id_data">请输入你的字符串：</label></h3>
+        <h3><input id="id_data" type="text" name="data" placeholder="你的字符串" required></h3>
+        <h3><input type="submit" value="确定"></h3>
+    </form>
+
+{% endblock %}

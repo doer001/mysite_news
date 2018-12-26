@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}新闻首页{% endblock %}
+
+{% block content %}
+    <ul>
+    {% for column in columns %}
+        <li>
+            <h3><a href="{{ column.get_url }}">{{ column.name }}</a></h3>
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

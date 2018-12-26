@@ -1,0 +1,37 @@
+
+<!DOCTYPE html> <!-- 声明为 HTML5 文档 -->
+<html lang="zh-CN"> <!-- 声明为简体中文页面 -->
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>{% block title %}页面标题{% endblock %}</title>  <!-- 设置了一个动态的页面title块 -->
+
+    {% load staticfiles %} <!-- 此行代码使static方法可用 -->
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}">
+    <script src="{% static '/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static '/js/bootstrap.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+
+    {% include 'nav.html' %}    <!-- 插入导航栏 -->
+
+    <div class="container"> <!-- 容器 -->
+        <div class="col-md-9 column"><!-- 行中的列：col-md-9表示此列宽度为页面主体宽度的9/12。 -->
+            <!--主要内容-->
+            {% block content %}<h1>欢迎来到Mysite社区</h1>{% endblock %}
+        </div>
+        <div class="col-md-3 column hidden-xs hidden-sm">
+            <!-- 行中的列：col-md-3表示此列宽度为页面主体宽度的3/12；hidden-xs和hidden-sm表示在小屏幕和超小屏幕设备中打开页面时隐藏此列-->
+            <!--侧边栏-->
+            {% include 'sidebar.html' %}
+        </div>
+    </div>
+
+    {% include 'bottom.html' %}
+
+</body>
+</html>
